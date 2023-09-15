@@ -21,9 +21,14 @@ export class CreateContactComponent {
   constructor(private contactService: ContactService) { }
 
   onSubmit(): void {
-    this.contactService.createContact(this.newContact).subscribe((result: Contact) => {
-    }, (error) => {
-      alert("Something went wrong: " + error)
-    });
+    this.contactService.createContact(this.newContact).subscribe(
+      (result: Contact) => {
+        console.log("Contact was succesfully added", result);
+      },
+      (error) => {
+        console.error("Mistake during adding the contact", error);
+        alert("Something went wrong: " + error);
+      }
+    );
   }
 }
