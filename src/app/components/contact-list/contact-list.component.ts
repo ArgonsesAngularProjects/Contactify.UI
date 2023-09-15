@@ -21,4 +21,31 @@ export class ContactListComponent {
       this.contacts = data;
     });
   }
+
+  deleteContact(id: number) {
+    this.contactService.deleteContact(id).subscribe(
+      () => {
+        this.contactService.getContacts().subscribe((contacts: Contact[]) => {
+          this.contacts = contacts;
+        });
+      },
+      (error) => {
+        console.error("Mistake while deleting the contact.", error);
+        alert("Something went wrong: " + error);
+      }
+    );
+  }
+
+  getContact(id: number) {
+    this.contactService.getContact(id).subscribe(
+      (contact: Contact) => {
+        const contactInfo = `ID: ${contact.id}\nFirst Name: ${contact.firstName}\nLast Name: ${contact.lastName}\nPhone Number: ${contact.phoneNumber}\nEmail: ${contact.email}\nProfession: ${contact.profession}\nCity: ${contact.city}`;
+        alert(contactInfo);
+      },
+      (error) => {
+        console.error("Mistake while seeking for the details of the contact.", error);
+        alert("Something went wrong: " + error);
+      }
+    );  
+  }
 }
