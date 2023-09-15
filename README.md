@@ -1,27 +1,56 @@
-# ContactifyUI
+## Contactify.UI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.2.
+- Contactify.UI is the frontend application for ContactifyAPI, a contact management system. It provides a user-friendly interface for managing your contacts.
 
-## Development server
+##Table of Contents**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Getting Started
+- Installation
+- Features
+- Contributing
+- License
+  
+## Getting Started
 
-## Code scaffolding
+Node.js installed 
+Angular CLI installed 
+ContactifyAPI backend project set up and running
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation
 
-## Build
+**Clone the Contactify.UI repository:**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+*git clone https://github.com/ArgonsesAngularProjects/Contactify.UI.git*
 
-## Running unit tests
+- Navigate to the project directory:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+*cd Contactify.UI*
 
-## Running end-to-end tests
+- Start the development server:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+*ng serve*
 
-## Further help
+## Features
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+**List and briefly describe the key features of the Contactify.UI frontend, such as:**
+
+- Viewing a list of contacts.
+- Adding new contacts.
+- Editing existing contacts.
+- Deleting contacts.
+- You can also mention any additional features or functionalities that make this application unique.
+
+## Contributing
+
+**We welcome contributions from the community. To contribute to Contactify.UI, please follow these steps:**
+
+- Fork the repository.
+- Create a new branch for your feature or bug fix: git checkout -b feature/your-feature-name.
+- Make your changes and commit them: git commit -m 'Add some feature'.
+- Push to your forked repository: git push origin feature/your-feature-name.
+- Create a pull request to the main repository.
+- Please ensure that your code follows our coding standards and includes appropriate tests.
+
+## License
+
+This project is licensed under the MIT License. Feel free to use, modify, and distribute it as per the terms of the license.
