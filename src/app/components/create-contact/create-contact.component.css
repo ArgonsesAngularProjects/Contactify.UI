@@ -1,0 +1,36 @@
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  display: block; 
+}
+
+input[type="text"],
+input[type="email"] {
+  max-width: 400px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: block; 
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
