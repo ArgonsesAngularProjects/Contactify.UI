@@ -9,6 +9,7 @@ import { ContactService } from 'src/app/services/contact.service';
 })
 export class ContactListComponent {
   contacts: Contact[] = [];
+  contact: Contact = new Contact();
 
   constructor(private contactService: ContactService) { }
 
@@ -28,10 +29,6 @@ export class ContactListComponent {
         this.contactService.getContacts().subscribe((contacts: Contact[]) => {
           this.contacts = contacts;
         });
-      },
-      (error) => {
-        console.error("Mistake while deleting the contact.", error);
-        alert("Something went wrong: " + error);
       }
     );
   }
@@ -47,5 +44,40 @@ export class ContactListComponent {
         alert("Something went wrong: " + error);
       }
     );  
+  }
+
+  editContact(contact: Contact): void {
+    const editedContact: Contact = { ...contact };
+    
+    editedContact.firstName = prompt('Edit First Name:', contact.firstName) || contact.firstName;
+    editedContact.lastName = prompt('Edit Last Name:', contact.lastName) || contact.lastName;
+    editedContact.phoneNumber = parseInt(prompt('Edit Phone Number:', contact.phoneNumber.toString()) || contact.phoneNumber.toString(), 10);
+    editedContact.email = prompt('Edit Email:', contact.email) || contact.email;
+    editedContact.profession = prompt('Edit Profession:', contact.profession) || contact.profession;
+    editedContact.city = prompt('Edit City:', contact.city) || contact.city;
+  
+    this.contactService.updateContact(editedContact.id, editedContact).subscribe(() => {
+      const index = this.contacts.findIndex(c => c.id === contact.id);
+      if (index !== -1) {
+        this.contacts[index] = editedContact;
+      }
+    });
+  }
+
+  addContact(): void {
+    const newContact: Contact = {
+      id: this.contact.id,
+      firstName: this.contact.firstName || '',
+      lastName: this.contact.lastName || '',
+      phoneNumber: this.contact.phoneNumber || 0,
+      email: this.contact.email || '',
+      profession: this.contact.profession || '',
+      city: this.contact.city || ''
+    };
+
+    this.contactService.createContact(newContact).subscribe(() => {
+      this.loadContacts(); 
+      this.contact = new Contact(); 
+    });
   }
 }
